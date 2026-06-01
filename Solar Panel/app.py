@@ -1,10 +1,14 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
 
-
-model = joblib.load("solar_power_model.pkl")
-
+st.write("__file__ =", __file__)
+st.write("dirname =", os.path.dirname(__file__))
+st.write("files =", os.listdir(os.path.dirname(__file__)))
+model_path = os.path.join(os.path.dirname(__file__), "solar_power_model.pkl")
+st.write("model path =", model_path)
+model = joblib.load(model_path)
 
 st.set_page_config(
     page_title="Solar Power Predictor",
